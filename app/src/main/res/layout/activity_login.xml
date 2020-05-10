@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/purple"
+    android:gravity="center"
+    tools:context=".loginAc">
+
+    <LinearLayout
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:fontFamily="@font/jura"
+            android:text="Log in"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="40dp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/logEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="14dp"
+            android:hint="E-mail"
+            android:layout_marginTop="10dp"
+            android:textColorHint="@color/white"
+            android:fontFamily="@font/jura"
+            android:background="@drawable/edittext_background"
+            android:inputType="textEmailAddress"
+            android:textColor="@color/white" />
+
+        <EditText
+            android:id="@+id/logPass"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="14dp"
+            android:hint="Password"
+            android:layout_marginTop="10dp"
+            android:textColorHint="@color/white"
+            android:fontFamily="@font/jura"
+            android:background="@drawable/edittext_background"
+            android:inputType="textPassword"
+            android:textColor="@color/white" />
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:paddingTop="10dp"
+            android:layout_gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Don't have an account?"
+                android:textSize="14dp"
+                android:fontFamily="@font/jura"
+
+                android:textColor="@color/white"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvReg"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="  Register"
+                android:textSize="14dp"
+                android:fontFamily="@font/jura"
+                android:textColor="@color/white"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+
+
+        <Button
+            android:id="@+id/btnLogin"
+            android:layout_width="100dp"
+            android:layout_height="40dp"
+            android:background="@drawable/btn_login"
+            android:textColor="@color/white"
+            android:textSize="14dp"
+            android:fontFamily="@font/jura"
+            android:text="Log in"
+            android:textStyle="bold"
+            android:layout_marginTop="30dp"
+            android:textAllCaps="false"
+            android:layout_gravity="center"
+            android:stateListAnimator="@null" />
+
+
+
+    </LinearLayout>
+
+
+
+
+</RelativeLayout>
