@@ -40,7 +40,7 @@ public class registerAc extends AppCompatActivity {
 
 
         if(mAuth.getCurrentUser() != null){
-            Intent intent = new Intent(registerAc.this, MainActivity.class);
+            Intent intent = new Intent(registerAc.this, loginAc.class);
             startActivity(intent);
             finish();
 
@@ -54,7 +54,7 @@ public class registerAc extends AppCompatActivity {
         tvLog.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent inti = new Intent(registerAc.this, loginAc.class);
+                Intent inti = new Intent(registerAc.this, MainActivity.class);
                 startActivity(inti);
             }
         });
@@ -90,9 +90,6 @@ public class registerAc extends AppCompatActivity {
                 }
 
                 else if(confPass.equals(pass)){
-
-
-
                     mAuth.createUserWithEmailAndPassword(email, pass)
                             .addOnCompleteListener(registerAc.this, new OnCompleteListener<AuthResult>() {
                                 @Override
@@ -114,11 +111,7 @@ public class registerAc extends AppCompatActivity {
                                         Log.w("info", "createUserWithEmail:failure", task.getException());
                                         Toast.makeText(registerAc.this, "Authentication failed.",
                                                 Toast.LENGTH_SHORT).show();
-
-
-
-
-                                    }
+                            }
                         }
                     });
 

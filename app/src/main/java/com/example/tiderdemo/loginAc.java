@@ -124,3 +124,6 @@ public class loginAc extends AppCompatActivity {
         mFirebaseAuth.addAuthStateListener(mAuthStateListener);
     }
 }
+
+
+//note: youtubedaki 4/4 videony gor we login pageni tazeden etmane synans sebabi yalnyslyk kan. registerAc alright ,,, registerAc-daky 42-nji setire uns ber currentgetUser(), sol yalnysdyrmasyn

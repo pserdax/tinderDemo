@@ -26,14 +26,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        btnLogout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mFireBaseAuth.getInstance().signOut();
-                Intent intent =  new Intent(MainActivity.this, registerAc.class);
-                startActivity(intent);
-            }
-        });
+
+
 
 
 
