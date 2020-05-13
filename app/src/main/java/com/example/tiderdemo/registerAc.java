@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -25,7 +26,9 @@ public class registerAc extends AppCompatActivity {
      private EditText mEmail,mPass, mConfPass;
      private Button mReg_button;
      private TextView tvLog;
-    private FirebaseAuth mAuth;
+     private FirebaseAuth mAuth;
+     private ProgressBar progressBar;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,10 +40,12 @@ public class registerAc extends AppCompatActivity {
         mReg_button =  findViewById(R.id.btnRegister);
         tvLog =  findViewById(R.id.tvSign);
         mAuth = FirebaseAuth.getInstance();
+        progressBar = findViewById(R.id.progressBar);
+
 
 
         if(mAuth.getCurrentUser() != null){
-            Intent intent = new Intent(registerAc.this, loginAc.class);
+            Intent intent = new Intent(registerAc.this, MainActivity.class);
             startActivity(intent);
             finish();
 
@@ -54,7 +59,7 @@ public class registerAc extends AppCompatActivity {
         tvLog.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent inti = new Intent(registerAc.this, MainActivity.class);
+                Intent inti = new Intent(registerAc.this, loginAc.class);
                 startActivity(inti);
             }
         });
@@ -89,15 +94,19 @@ public class registerAc extends AppCompatActivity {
                     Toast.makeText(registerAc.this, "Password doesn't match", Toast.LENGTH_SHORT).show();
                 }
 
+
                 else if(confPass.equals(pass)){
+                    progressBar.setVisibility(View.VISIBLE);
+
                     mAuth.createUserWithEmailAndPassword(email, pass)
                             .addOnCompleteListener(registerAc.this, new OnCompleteListener<AuthResult>() {
                                 @Override
                                 public void onComplete(@NonNull Task<AuthResult> task) {
                                     if (task.isSuccessful()) {
 
+                                        Toast.makeText(registerAc.this, "Registered Successfully", Toast.LENGTH_SHORT).show();
 
-                                        Log.i("successfull", "bettttt");
+
 
                                 Intent intent = new Intent(registerAc.this, MainActivity.class);
                                 startActivity(intent);
@@ -108,9 +117,8 @@ public class registerAc extends AppCompatActivity {
 
                                 task.getException().printStackTrace();
 
-                                        Log.w("info", "createUserWithEmail:failure", task.getException());
-                                        Toast.makeText(registerAc.this, "Authentication failed.",
-                                                Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(registerAc .this, "Error ! " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                                        progressBar.setVisibility(View.GONE);
                             }
                         }
                     });

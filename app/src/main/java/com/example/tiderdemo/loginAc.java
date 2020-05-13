@@ -1,129 +1,147 @@
 package com.example.tiderdemo;
-
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.tiderdemo.MainActivity;
+import com.example.tiderdemo.R;
+import com.example.tiderdemo.registerAc;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 
 public class loginAc extends AppCompatActivity {
-
-   private  EditText mEmail,mPass;
-    private Button mlog_button;
-    private TextView tvReg;
-     FirebaseAuth mFirebaseAuth;
-     FirebaseAuth.AuthStateListener mAuthStateListener;
+    EditText mEmail,mPassword;
+    Button mLoginBtn;
+    TextView tvReg,forgotTextLink;
+    ProgressBar progressBar;
+    FirebaseAuth fAuth;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
-        mEmail = findViewById(R.id.logEmail);
-        mPass = findViewById(R.id.logPass);
-        tvReg = findViewById(R.id.tvReg);
-        mlog_button  =(Button) findViewById(R.id.btnLogin);
-        mFirebaseAuth = FirebaseAuth.getInstance();
-
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        mAuthStateListener  = new FirebaseAuth.AuthStateListener() {
+        mEmail = findViewById(R.id.logEmail);
+        mPassword = findViewById(R.id.logPass);
+        progressBar = findViewById(R.id.progressBar);
+        fAuth = FirebaseAuth.getInstance();
+        mLoginBtn = findViewById(R.id.btnLogin);
+        tvReg = findViewById(R.id.tvReg);
+       // forgotTextLink = findViewById(R.id.forgotPassword);
+
+//        if(fAuth.getCurrentUser() != null){
+//            Intent intent = new Intent(loginAc.this, MainActivity.class);
+//            startActivity(intent);
+//            finish();
+//
+//
+//        }
+
+
+
+        mLoginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
-                FirebaseUser mFirebaseUser = mFirebaseAuth.getCurrentUser();
-                if(mFirebaseUser != null){
+            public void onClick(View v) {
 
-                    Toast.makeText(loginAc.this, "You are logged in", Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(loginAc.this, MainActivity.class);
-                    startActivity(intent);
+                String email = mEmail.getText().toString().trim();
+                String password = mPassword.getText().toString().trim();
 
-
+                if(TextUtils.isEmpty(email)){
+                    mEmail.setError("Email is Required.");
+                    return;
                 }
-                else{
-                    Toast.makeText(loginAc.this, "Please log in!", Toast.LENGTH_SHORT).show();
 
-
-
+                if(TextUtils.isEmpty(password)){
+                    mPassword.setError("Password is Required.");
+                    return;
                 }
+
+
+
+                progressBar.setVisibility(View.VISIBLE);
+
+                // authenticate the user
+
+                fAuth.signInWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if(task.isSuccessful()){
+                            Toast.makeText(loginAc.this, "Logged in Successfully", Toast.LENGTH_SHORT).show();
+                            startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                        }else {
+                            Toast.makeText(loginAc.this, "Error ! " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                            progressBar.setVisibility(View.GONE);
+                        }
+
+                    }
+                });
+
             }
-        };
+        });
 
         tvReg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(loginAc.this, registerAc.class);
-                startActivity(intent);
+                startActivity(new Intent(getApplicationContext(), registerAc.class));
             }
         });
 
+//        forgotTextLink.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//
+//                final EditText resetMail = new EditText(v.getContext());
+//                final AlertDialog.Builder passwordResetDialog = new AlertDialog.Builder(v.getContext());
+//                passwordResetDialog.setTitle("Reset Password ?");
+//                passwordResetDialog.setMessage("Enter Your Email To Received Reset Link.");
+//                passwordResetDialog.setView(resetMail);
+//
+//                passwordResetDialog.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+//                    @Override
+//                    public void onClick(DialogInterface dialog, int which) {
+//                        // extract the email and send reset link
+//                        String mail = resetMail.getText().toString();
+//                        fAuth.sendPasswordResetEmail(mail).addOnSuccessListener(new OnSuccessListener<Void>() {
+//                            @Override
+//                            public void onSuccess(Void aVoid) {
+//                                Toast.makeText(Login.this, "Reset Link Sent To Your Email.", Toast.LENGTH_SHORT).show();
+//                            }
+//                        }).addOnFailureListener(new OnFailureListener() {
+//                            @Override
+//                            public void onFailure(@NonNull Exception e) {
+//                                Toast.makeText(Login.this, "Error ! Reset Link is Not Sent" + e.getMessage(), Toast.LENGTH_SHORT).show();
+//                            }
+//                        });
+//
+//                    }
+//                });
 
-
-        mlog_button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String email, pass;
-
-                email = mEmail.getText().toString();
-                pass = mPass.getText().toString();
-
-                if(email.equals("")){
-
-                    Toast.makeText(loginAc.this, "Email Required", Toast.LENGTH_SHORT).show();
-                }
-                else if(pass.equals("")){
-                    Toast.makeText(loginAc.this, "Password Required", Toast.LENGTH_SHORT).show();
-                }
-
-                else if(!(email.isEmpty() && pass.isEmpty())){
-                    mFirebaseAuth.signInWithEmailAndPassword(email, pass).addOnCompleteListener(loginAc.this, new OnCompleteListener<AuthResult>() {
-                        @Override
-                        public void onComplete(@NonNull Task<AuthResult> task) {
-
-                            if(!task.isSuccessful()){
-                                Toast.makeText(loginAc.this, "Login Unsuccessful", Toast.LENGTH_SHORT).show();
-
-
-                            }
-                            else{
-
-                                Intent intent = new Intent(loginAc.this, MainActivity.class);
-                                startActivity(intent);
-
-                            }
-                        }
-                    });
-                }
-                else{
-                    Toast.makeText(loginAc.this, "Error occurred", Toast.LENGTH_SHORT).show();
-
-                }
-
-
-            }
-        });
-
-
-
-    }
-
-    @Override
-    protected void onStart() {
-        super.onStart();
-        mFirebaseAuth.addAuthStateListener(mAuthStateListener);
+//                passwordResetDialog.setNegativeButton("No", new DialogInterface.OnClickListener() {
+//                    @Override
+//                    public void onClick(DialogInterface dialog, int which) {
+//                        // close the dialog
+//                    }
+//                });
+//
+//                passwordResetDialog.create().show();
+//
+//            }
+//        });
     }
 }
-
-
-//note: youtubedaki 4/4 videony gor we login pageni tazeden etmane synans sebabi yalnyslyk kan. registerAc alright ,,, registerAc-daky 42-nji setire uns ber currentgetUser(), sol yalnysdyrmasyn
