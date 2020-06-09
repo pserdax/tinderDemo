@@ -9,16 +9,20 @@
     <FrameLayout
         android:id="@+id/fragment_container"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent" >
 
-    <com.ismaeldivita.chipnavigation.ChipNavigationBar
-        android:id="@+id/bottom_nav"
-        android:layout_width="match_parent"
-        android:layout_height="72dp"
-        android:layout_alignParentBottom="true"
-        android:background="@drawable/rounded"
-        android:elevation="16dp"
-        android:padding="8dp"
-        app:cnb_menuResource="@menu/menu_bottom" />
+        <fragment
+            android:id="@+id/fragment"
+            android:name="androidx.navigation.fragment.NavHostFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:defaultNavHost="true"
+            app:navGraph="@navigation/nav_graph" />
+
+
+    </FrameLayout>
+
+
+
 
 </RelativeLayout>

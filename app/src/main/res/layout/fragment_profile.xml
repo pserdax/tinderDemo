@@ -1,19 +1,204 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimaryDark"
+    android:background="@color/white"
     tools:context=".profileFragment">
 
+
+
+    <RelativeLayout
+        android:id="@+id/yokary"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="@color/colorPrimaryDark">
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/profileAvatar">
+
+
+       <TextView
+           android:layout_centerHorizontal="true"
+           android:id="@+id/fullName"
+           android:layout_marginTop="26dp"
+           android:fontFamily="@font/jura"
+           android:textColor="@color/black"
+           android:textStyle="bold"
+           android:textSize="18sp"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:text="Serdar Parahatgeldiyev"/>
+
+
+        <LinearLayout
+            android:layout_below="@+id/fullName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+        <LinearLayout
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="30dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_email"
+                android:id="@+id/iconEmail"
+
+
+                />
+            <TextView
+                android:layout_gravity="center"
+                android:layout_marginLeft="10dp"
+                android:id="@+id/email"
+                android:textSize="16sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/jura"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:text="parahatgeldiyev@gmail.com"/>
+
+
+
+
+
+
+</LinearLayout>
+
+            <LinearLayout
+                android:layout_marginLeft="40dp"
+                android:layout_marginTop="15dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_phone_black_24dp"
+                    android:id="@+id/iconPhone"/>
+                <TextView
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="10dp"
+                    android:id="@+id/phoneNumber"
+                    android:textSize="16sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/jura"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:text="0730380128"/>
+            </LinearLayout>
+
+
+
+            <LinearLayout
+                android:layout_marginLeft="40dp"
+                android:layout_marginTop="15dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_twitter"
+                    android:id="@+id/iconTwitter"/>
+                <TextView
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="10dp"
+                    android:id="@+id/twitter"
+                    android:textSize="16sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/jura"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:text="pserdax"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_marginLeft="40dp"
+                android:layout_marginTop="15dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_location"
+                    android:id="@+id/iconLocation"/>
+                <TextView
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="10dp"
+                    android:id="@+id/location"
+                    android:textSize="16sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/jura"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:text="Bucharest, Romania"/>
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+
+    </RelativeLayout>
+
+
+
     <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_centerInParent="true"
+
+
+
+<!--    <Button-->
+<!--        android:id="@+id/btnLogin"-->
+<!--        android:layout_width="100dp"-->
+<!--        android:layout_height="40dp"-->
+<!--        android:layout_below="@+id/hi"-->
+<!--        android:layout_alignParentStart="true"-->
+<!--        android:layout_alignParentEnd="true"-->
+<!--        android:layout_gravity="center"-->
+<!--        android:layout_marginStart="156dp"-->
+<!--        android:layout_marginTop="148dp"-->
+<!--        android:layout_marginEnd="154dp"-->
+<!--        android:background="@drawable/btn_login"-->
+<!--        android:fontFamily="@font/jura"-->
+<!--        android:onClick="logout"-->
+<!--        android:stateListAnimator="@null"-->
+<!--        android:text="Log out"-->
+<!--        android:textAllCaps="false"-->
+<!--        android:textColor="@color/white"-->
+<!--        android:textSize="14dp"-->
+<!--        android:textStyle="bold" />-->
+
+    <ImageView
+        android:id="@+id/profileAvatar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Profile"
-        android:textSize="26sp"
-        android:textColor="@color/white"/>
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="130dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat = "@mipmap/ic_launcher_foreground"
+
+
+        />
 
 
 </RelativeLayout>

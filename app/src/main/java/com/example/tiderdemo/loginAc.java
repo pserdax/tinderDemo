@@ -45,13 +45,13 @@ public class loginAc extends AppCompatActivity {
         tvReg = findViewById(R.id.tvReg);
        // forgotTextLink = findViewById(R.id.forgotPassword);
 
-//        if(fAuth.getCurrentUser() != null){
-//            Intent intent = new Intent(loginAc.this, MainActivity.class);
-//            startActivity(intent);
-//            finish();
-//
-//
-//        }
+        if(fAuth.getCurrentUser() != null){
+            Intent intent = new Intent(loginAc.this, MainActivity.class);
+            startActivity(intent);
+            finish();
+
+
+        }
 
 
 
