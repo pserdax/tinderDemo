@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/loginFragment">
+    app:startDestination="@id/startFragment">
 
     <fragment
         android:id="@+id/loginFragment"
@@ -17,6 +17,7 @@
             android:id="@+id/action_loginFragment_to_mainmenuFragment"
             app:destination="@id/mainmenuFragment" />
     </fragment>
+
     <fragment
         android:id="@+id/registerFragment"
         android:name="com.example.tiderdemo.registerFragment"
@@ -32,6 +33,7 @@
             android:id="@+id/action_registerFragment_to_testFragment"
             app:destination="@id/testFragment" />
     </fragment>
+
     <fragment
         android:id="@+id/mainmenuFragment"
         android:name="com.example.tiderdemo.mainmenuFragment"
@@ -42,4 +44,21 @@
         android:name="com.example.tiderdemo.testFragment"
         android:label="fragment_test"
         tools:layout="@layout/fragment_test" />
+
+    <fragment
+        android:id="@+id/startFragment"
+        android:name="com.example.tiderdemo.startFragment"
+        android:label="fragment_start"
+        tools:layout="@layout/fragment_start" >
+        <action
+            android:id="@+id/action_startFragment_to_registerFragment"
+            app:destination="@id/registerFragment" />
+        <action
+            android:id="@+id/action_startFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+        <action
+            android:id="@+id/action_startFragment_to_mainmenuFragment"
+            app:destination="@id/mainmenuFragment" />
+    </fragment>
+
 </navigation>

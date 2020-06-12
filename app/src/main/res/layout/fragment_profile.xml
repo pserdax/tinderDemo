@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -13,152 +14,141 @@
         android:id="@+id/yokary"
         android:layout_width="match_parent"
         android:layout_height="200dp"
-        android:background="@color/colorPrimaryDark">
+        android:background="@color/colorPrimaryDark"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
     </RelativeLayout>
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@+id/profileAvatar">
+    <TextView
+        android:layout_centerHorizontal="true"
+        android:id="@+id/fullNamee"
+        android:layout_marginTop="26dp"
+        android:fontFamily="@font/jura"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:textSize="18sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Serdar Parahatgeldiyev"
+        app:layout_constraintTop_toBottomOf="@id/profileAvatar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
 
 
-       <TextView
-           android:layout_centerHorizontal="true"
-           android:id="@+id/fullName"
-           android:layout_marginTop="26dp"
-           android:fontFamily="@font/jura"
-           android:textColor="@color/black"
-           android:textStyle="bold"
-           android:textSize="18sp"
-           android:layout_width="wrap_content"
-           android:layout_height="wrap_content"
-           android:text="Serdar Parahatgeldiyev"/>
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_email"
+        android:id="@+id/iconEmail"
+        app:layout_constraintTop_toBottomOf="@+id/fullNamee"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="50dp"
+        android:layout_marginRight ="230dp" />
 
+    <TextView
+        android:id="@+id/emaill"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="53dp"
+        android:layout_marginRight="2dp"
+        android:fontFamily="@font/jura"
+        android:text="parahatgeldiyev@gmail.com"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.017"
+        app:layout_constraintStart_toEndOf="@+id/iconEmail"
+        app:layout_constraintTop_toBottomOf="@+id/fullNamee"/>
 
-        <LinearLayout
-            android:layout_below="@+id/fullName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_phone_black_24dp"
+        android:id="@+id/iconPhone"
+        app:layout_constraintTop_toBottomOf="@+id/iconEmail"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight ="230dp"/>
 
+    <TextView
+        android:id="@+id/phoneNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="19dp"
+        android:fontFamily="@font/jura"
+        android:text="0730380128"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/iconPhone"
+        app:layout_constraintTop_toBottomOf="@+id/emaill" />
 
-        <LinearLayout
-            android:layout_marginLeft="40dp"
-            android:layout_marginTop="30dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_twitter"
+        android:id="@+id/iconTwitter"
+        app:layout_constraintTop_toBottomOf="@+id/iconPhone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight ="230dp"
+        />
 
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/ic_email"
-                android:id="@+id/iconEmail"
+    <TextView
+        android:id="@+id/twitter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/jura"
+        android:text="pserdax"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/iconTwitter"
+        app:layout_constraintTop_toBottomOf="@+id/phoneNumber" />
 
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_location"
+        android:id="@+id/iconLocation"
+        app:layout_constraintTop_toBottomOf="@+id/iconTwitter"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight ="230dp"/>
 
-                />
-            <TextView
-                android:layout_gravity="center"
-                android:layout_marginLeft="10dp"
-                android:id="@+id/email"
-                android:textSize="16sp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/jura"
-                android:textColor="@color/black"
-                android:textStyle="bold"
-                android:text="parahatgeldiyev@gmail.com"/>
-
-
-
-
-
-
-</LinearLayout>
-
-            <LinearLayout
-                android:layout_marginLeft="40dp"
-                android:layout_marginTop="15dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/ic_phone_black_24dp"
-                    android:id="@+id/iconPhone"/>
-                <TextView
-                    android:layout_gravity="center"
-                    android:layout_marginLeft="10dp"
-                    android:id="@+id/phoneNumber"
-                    android:textSize="16sp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/jura"
-                    android:textColor="@color/black"
-                    android:textStyle="bold"
-                    android:text="0730380128"/>
-            </LinearLayout>
-
-
-
-            <LinearLayout
-                android:layout_marginLeft="40dp"
-                android:layout_marginTop="15dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/ic_twitter"
-                    android:id="@+id/iconTwitter"/>
-                <TextView
-                    android:layout_gravity="center"
-                    android:layout_marginLeft="10dp"
-                    android:id="@+id/twitter"
-                    android:textSize="16sp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/jura"
-                    android:textColor="@color/black"
-                    android:textStyle="bold"
-                    android:text="pserdax"/>
-            </LinearLayout>
-            <LinearLayout
-                android:layout_marginLeft="40dp"
-                android:layout_marginTop="15dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/ic_location"
-                    android:id="@+id/iconLocation"/>
-                <TextView
-                    android:layout_gravity="center"
-                    android:layout_marginLeft="10dp"
-                    android:id="@+id/location"
-                    android:textSize="16sp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/jura"
-                    android:textColor="@color/black"
-                    android:textStyle="bold"
-                    android:text="Bucharest, Romania"/>
-            </LinearLayout>
-
-        </LinearLayout>
-
-
-
-    </RelativeLayout>
-
-
+    <TextView
+        android:layout_gravity="center"
+        android:layout_marginLeft="10dp"
+        android:id="@+id/location"
+        android:textSize="16sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/jura"
+        android:layout_marginTop="19dp"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:text="Bucharest, Romania"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/iconLocation"
+        app:layout_constraintTop_toBottomOf="@+id/twitter" />
 
     <!-- TODO: Update blank fragment layout -->
 
@@ -195,10 +185,7 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat = "@mipmap/ic_launcher_foreground"
+        app:srcCompat = "@mipmap/ic_launcher_foreground" />
 
 
-        />
-
-
-</RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

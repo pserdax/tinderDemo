@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "261789329084",
+    "firebase_url": "https://tiderdemo.firebaseio.com",
+    "project_id": "tiderdemo",
+    "storage_bucket": "tiderdemo.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:261789329084:android:0347a19a985e85603012b9",
+        "android_client_info": {
+          "package_name": "com.example.tiderdemo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "261789329084-0gjknqtqctfrqrk73hcqbg8ko2o1i0is.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.tiderdemo",
+            "certificate_hash": "0ddc63351bdc9114182aa36efa24dd14a3624276"
+          }
+        },
+        {
+          "client_id": "261789329084-hnehl5j2s1511epla4fg4t3r82b2h3ar.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyArjz6CNfVoe8XVzhXVnLYQ8LgSuqqaYNM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "261789329084-hnehl5j2s1511epla4fg4t3r82b2h3ar.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

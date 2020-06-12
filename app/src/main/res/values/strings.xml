@@ -3,5 +3,27 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="txt_pass_value">Password</string>
+    <string name="txt_email">E-mail</string>
+    <string name="fName">Full name</string>
+    <string name="tv_Register">Register</string>
+    <string name="confPass">Confirm password</string>
+    <string name="btn_register">Register</string>
+    <string name="already_have_an_acc">Already have an account?</string>
+    <string name="tv_login">Log in</string>
+    <string name="dont_haveAcc">Don\'t have an account yet?</string>
+    <string name="phoneNumber">Phone number</string>
+    <string name="tinder">TiderDemoo</string>
+    <string name="facebook">Sign in with facebook</string>
+    <string name="google">Sign in with Google</string>
+    <string name="email">Sign in with Email</string>
+
+
+    <!-- strings for sign in with facebook-->
+
+    <string name="facebook_app_id">188438985830835</string>
+    <string name="fb_login_protocol_scheme">fb188438985830835</string>
+
+
 
 </resources>
