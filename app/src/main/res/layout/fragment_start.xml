@@ -29,7 +29,7 @@
         android:id="@+id/already_mgs"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="250dp"
+        android:layout_marginTop="256dp"
         android:fontFamily="@font/jura"
         android:text="@string/dont_haveAcc"
         android:textColor="@color/white"
@@ -44,7 +44,7 @@
         android:id="@+id/tvReg"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="250dp"
+        android:layout_marginTop="256dp"
         android:layout_marginEnd="90dp"
         android:fontFamily="@font/jura"
         android:text="@string/tv_Register"
@@ -52,7 +52,7 @@
         android:textSize="14sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.996"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/fbSign" />
 
@@ -92,11 +92,11 @@
         app:layout_constraintTop_toBottomOf="@+id/tiderDemo" />
 
 
-    <com.facebook.login.widget.LoginButton
+    <TextView
         android:id="@+id/fbSign"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="252dp"
+        android:layout_marginTop="116dp"
         android:layout_marginEnd="95dp"
         android:fontFamily="@font/jura"
         android:text="@string/facebook"
@@ -104,7 +104,7 @@
         android:textSize="14sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.825"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/iconFacebook"
         app:layout_constraintTop_toBottomOf="@+id/tiderDemo" />
 
@@ -112,7 +112,7 @@
         android:id="@+id/ggSign"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
+        android:layout_marginStart="10dp"
         android:layout_marginTop="116dp"
         android:layout_marginEnd="32dp"
         android:fontFamily="@font/jura"
@@ -121,7 +121,7 @@
         android:textSize="14sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.996"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tiderDemo" />
 
@@ -138,7 +138,7 @@
         android:textSize="14sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.597"
+        app:layout_constraintHorizontal_bias="0.6"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tiderDemo" />
 

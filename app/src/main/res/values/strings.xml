@@ -6,6 +6,7 @@
     <string name="txt_pass_value">Password</string>
     <string name="txt_email">E-mail</string>
     <string name="fName">Full name</string>
+    <string name="lName">Last name</string>
     <string name="tv_Register">Register</string>
     <string name="confPass">Confirm password</string>
     <string name="btn_register">Register</string>

@@ -35,7 +35,7 @@
         </activity>
 
 
-        <!-- DEFAULT FOR THIS APP, BUT I ALSO IMPLEMENTED SOMETHIGN SOMEHOW-->
+        <!-- DEFAULT FOR THIS APP, BUT I ALSO IMPLEMENTED SOMETHING SOMEHOW-->
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.MAIN" />

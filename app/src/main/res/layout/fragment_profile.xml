@@ -20,28 +20,44 @@
         app:layout_constraintTop_toTopOf="parent">
     </RelativeLayout>
 
+
     <TextView
-        android:layout_centerHorizontal="true"
-        android:id="@+id/fullNamee"
-        android:layout_marginTop="26dp"
-        android:fontFamily="@font/jura"
-        android:textColor="@color/black"
-        android:textStyle="bold"
-        android:textSize="18sp"
+        android:id="@+id/fName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Serdar Parahatgeldiyev"
-        app:layout_constraintTop_toBottomOf="@id/profileAvatar"
+        android:layout_marginTop="32dp"
+        android:fontFamily="@font/jura"
+        android:text="Serdar"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.385"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintTop_toBottomOf="@id/profileAvatar" />
 
+    <TextView
+        android:id="@+id/lName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="32dp"
+        android:fontFamily="@font/jura"
+        android:text="Parahatgeldiyev"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.699"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/profileAvatar" />
 
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/ic_email"
         android:id="@+id/iconEmail"
-        app:layout_constraintTop_toBottomOf="@+id/fullNamee"
+        app:layout_constraintTop_toBottomOf="@+id/fName"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="50dp"
@@ -63,7 +79,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.017"
         app:layout_constraintStart_toEndOf="@+id/iconEmail"
-        app:layout_constraintTop_toBottomOf="@+id/fullNamee"/>
+        app:layout_constraintTop_toBottomOf="@+id/fName"/>
 
     <ImageView
         android:layout_width="wrap_content"
@@ -149,6 +165,16 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/iconLocation"
         app:layout_constraintTop_toBottomOf="@+id/twitter" />
+
+    <Button
+        android:id="@+id/logoutProfile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:text="logout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/location" />
 
     <!-- TODO: Update blank fragment layout -->
 

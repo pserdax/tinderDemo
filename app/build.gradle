@@ -11,12 +11,27 @@ android {
 //        viewBinding = true
 //    }
 
+    // Configure only for each module that uses Java 8
+    // language features (either in its source code or
+    // through dependencies).
+
+    compileOptions {
+        // Flag to enable support for the new language APIs
+        coreLibraryDesugaringEnabled true
+        // Sets Java compatibility to Java 8
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
     defaultConfig {
         applicationId "com.example.tiderdemo"
         minSdkVersion 21
         targetSdkVersion 29
         versionCode 1
         versionName "1.0"
+        // Required when setting minSdkVersion to 20 or lower
+        multiDexEnabled true
+
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -31,6 +46,7 @@ android {
 }
 
 dependencies {
+    implementation 'com.google.android.gms:play-services-auth:18.0.0'
     def nav_version = "2.3.0-alpha06"
 
     // Java language implementation
@@ -41,6 +57,8 @@ dependencies {
     implementation 'com.facebook.android:facebook-android-sdk:[5,6)'
     implementation 'com.facebook.android:facebook-login:7.0.0'
     implementation 'androidx.browser:browser:1.2.0'
+
+    coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:1.0.5'
 
 
     // Dynamic Feature Module Support

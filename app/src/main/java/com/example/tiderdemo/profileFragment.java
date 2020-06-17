@@ -5,6 +5,8 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -48,6 +50,9 @@ public class profileFragment extends Fragment {
     private FragmentProfileBinding binding;
     private String userId;
     private FirebaseFirestore fStore;
+    private NavController navController;
+    private static final String USERS = "users";
+
 
 //    FirebaseDatabase firebaseDatabase;
 //    DatabaseReference databaseReference;
@@ -58,6 +63,15 @@ public class profileFragment extends Fragment {
         // Required empty public constructor
     }
 
+//    @Override
+//    public void onStart() {
+//        super.onStart();
+//
+//        if(fAuth.getCurrentUser() == null){
+//            navController.navigate(R.id.action_mainmenuFragment_to_startFragment);
+//        }
+//
+//    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -82,24 +96,48 @@ public class profileFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        navController = Navigation.findNavController(view);
+
+
+        fAuth = FirebaseAuth.getInstance();
+        fStore = FirebaseFirestore.getInstance();
+
+        userId  = fAuth.getCurrentUser().getUid();
+        firebaseDatabase = FirebaseDatabase.getInstance();
+        databaseReference = firebaseDatabase.getReference(USERS);
+
+        DocumentReference documentReference = fStore.collection("users").document(userId);
+        documentReference.addSnapshotListener(requireActivity(), new EventListener<DocumentSnapshot>() {
+            @Override
+            public void onEvent(@javax.annotation.Nullable DocumentSnapshot documentSnapshot, @javax.annotation.Nullable FirebaseFirestoreException e) {
+
+                binding.emaill.setText(documentSnapshot.getString("email"));
+                binding.phoneNumber.setText(documentSnapshot.getString("phoneNumber"));
+                binding.fName.setText(documentSnapshot.getString("fName"));
+                binding.lName.setText(documentSnapshot.getString("lName"));
+               // binding.emaill.setText(documentSnapshot.getString("email"));
+
+            }
+        });
 
 
 
 
-
-//        Intent intent  = getActivity().getIntent();
-//        final String email  = intent.getStringExtra("email");
-//        firebaseDatabase  = FirebaseDatabase.getInstance();
-//        databaseReference = firebaseDatabase.getReference(USERS);
+//        binding.emaill.setText(getArguments().getString("email"));
+//        String email = binding.emaill.getText().toString().trim();
 //
 //        databaseReference.addValueEventListener(new ValueEventListener() {
 //            @Override
 //            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 //                for(DataSnapshot ds: dataSnapshot.getChildren()){
-//                    if(ds.child("email").getValue().equals(email)){
 //
-//                        binding.fullName.setText(ds.child("fname").getValue(String.class));
-//                        binding.emaill.setText(email);
+//                    if(ds.child("email").getValue().equals(email)){
+//                        binding.fName.setText(ds.child("fName").getValue(String.class));
+//                        binding.lName.setText(ds.child("lName").getValue(String.class));
+//                        binding.emaill.setText(ds.child("email").getValue(String.class));
+//                        binding.phoneNumber.setText(ds.child("phoneNumber").getValue(String.class));
+//
+//
 //
 //                    }
 //                }
@@ -110,67 +148,39 @@ public class profileFragment extends Fragment {
 //
 //            }
 //        });
+
+
+//        Query query = databaseReference.orderByChild("email").equalTo(user.getEmail());
 //
-
-
-//
-//     fullName = view.findViewById(R.id.fullName);
-//     email = view.findViewById(R.id.email);
-//     phoneNumber = view.findViewById(R.id.phoneNumber);
-//     twitter = view.findViewById(R.id.twitter);
-//     location = view.findViewById(R.id.location);
-//     iconEmail = view.findViewById(R.id.iconEmail);
-//     iconPhone = view.findViewById(R.id.iconPhone);
-//     icontwitter = view.findViewById(R.id.iconTwitter);
-//     iconLocation = view.findViewById(R.id.iconLocation);
-
-
-        fAuth = FirebaseAuth.getInstance();
-        user  = fAuth.getCurrentUser();
-        firebaseDatabase = FirebaseDatabase.getInstance();
-        databaseReference = firebaseDatabase.getReference("users");
-
-        Query query = databaseReference.orderByChild("email").equalTo(user.getEmail());
-
-        query.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                for(DataSnapshot ds: dataSnapshot.getChildren()){
-                    String fNamee = ""+ ds.child("fName").getValue();
-
-
-                    //set data
-
-                    binding.fullNamee.setText(fNamee);
-
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });
-
-
-
-
-        //fStore = FirebaseFirestore.getInstance();
-
-//        userId = fAuth.getCurrentUser().getUid();
-//
-//        final DocumentReference documentReference = fStore.collection("users").document(userId);
-//
-//        documentReference.addSnapshotListener((Executor) this, new EventListener<DocumentSnapshot>() {
+//        query.addValueEventListener(new ValueEventListener() {
 //            @Override
-//            public void onEvent(@javax.annotation.Nullable DocumentSnapshot documentSnapshot, @javax.annotation.Nullable FirebaseFirestoreException e) {
+//            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+//                for(DataSnapshot ds: dataSnapshot.getChildren()){
+//                    String fNamee = ""+ ds.child("fName").getValue();
 //
-//                binding.fullNamee.setText(documentSnapshot.getString("fName"));
 //
+//                    //set data
+//
+//                    binding.fullNamee.setText(fNamee);
+//
+//                }
+//
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError databaseError) {
 //
 //            }
 //        });
 
+
+        binding.logoutProfile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FirebaseAuth.getInstance().signOut();
+                navController.navigate(R.id.action_mainmenuFragment_to_startFragment);
+
+
+            }
+        });
 
 
     }

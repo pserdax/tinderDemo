@@ -99,12 +99,13 @@ public class registerFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
-                final String email, pass, confPass, fullname, phoneNumber;
+                final String email, pass, confPass, firstname, lastname, phoneNumber;
 
                 email = binding.regEmail.getText().toString().trim();
                 pass = binding.regPass.getText().toString().trim();
                 confPass = binding.regPassConfirm.getText().toString().trim();
-                fullname = binding.regFullname.getText().toString().trim();
+                firstname = binding.regFirstName.getText().toString().trim();
+                lastname = binding.lastName.getText().toString().trim();
                 phoneNumber = binding.phoneNumber.getText().toString().trim();
 
                 if(TextUtils.isEmpty(email)){
@@ -120,8 +121,12 @@ public class registerFragment extends Fragment {
                     binding.regPassConfirm.setError("Password is Required.");
                     return;
                 }
-                if(TextUtils.isEmpty(fullname)){
-                    binding.regFullname.setError("Full name is Required.");
+                if(TextUtils.isEmpty(firstname)){
+                    binding.regFirstName.setError("First name is Required.");
+                    return;
+                }
+                if(TextUtils.isEmpty(lastname)){
+                    binding.lastName.setError("Last name is Required.");
                     return;
                 }
                 if(!confPass.equals(pass)){
@@ -143,7 +148,8 @@ public class registerFragment extends Fragment {
 
                                         DocumentReference documentReference = fStore.collection("users").document(userID);
                                         Map<String, Object> user = new HashMap<>();
-                                        user.put("fName", fullname);
+                                        user.put("fName", firstname);
+                                        user.put("lName", lastname);
                                         user.put("email", email);
                                         user.put("phoneNumber", phoneNumber);
                                         documentReference.set(user).addOnSuccessListener(new OnSuccessListener<Void>() {

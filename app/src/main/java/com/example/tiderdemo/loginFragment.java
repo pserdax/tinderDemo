@@ -1,5 +1,6 @@
 package com.example.tiderdemo;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
@@ -94,6 +95,18 @@ public class loginFragment extends Fragment  {
             }
         });
 
+         //String email = getText(binding.logEmail);
+//         Intent hi = new Intent(requireActivity(), profileFragment.class);
+//         hi.putExtras()
+//
+//        String email = binding.logEmail.getText().toString().trim();
+//        Bundle bundle = new Bundle();
+//        bundle.putString("email", email);
+       // profileFragment.setArguments(bundle);
+
+        // Navigation.findNavController(view).navigate(R.id.action_loginFragment_to_mainmenuFragment, bundle);
+
+        //navController.navigate(R.id.action_loginFragment_to_mainmenuFragment);
 
         binding.btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override

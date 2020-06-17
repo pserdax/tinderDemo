@@ -43,7 +43,7 @@
         app:layout_constraintTop_toBottomOf="@+id/RegisterThing" />
 
     <EditText
-        android:id="@+id/regFullname"
+        android:id="@+id/regFirstName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="85dp"
@@ -59,6 +59,24 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/regEmail" />
+
+    <EditText
+        android:id="@+id/lastName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="85dp"
+        android:layout_marginEnd="85dp"
+        android:layout_marginTop="10dp"
+        android:textSize="14sp"
+        android:hint="@string/lName"
+        android:textColorHint="@color/white"
+        android:fontFamily="@font/jura"
+        android:background="@drawable/edittext_background"
+        android:inputType="textEmailAddress"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/regFirstName" />
 
 
     <EditText
@@ -77,7 +95,7 @@
         android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/regFullname"/>
+        app:layout_constraintTop_toBottomOf="@+id/lastName"/>
 
     <EditText
         android:id="@+id/regPassConfirm"
